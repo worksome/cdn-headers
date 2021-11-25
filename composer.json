@@ -1,0 +1,36 @@
+{
+    "name": "worksome/cdn-headers",
+    "description": "Package that wraps around CDN headers.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Worksome\\CdnHeaders\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Worksome\\CdnHeaders\\Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lukas Juhas",
+            "email": "lukas@worksome.com"
+        }
+    ],
+    "require-dev": {
+        "pestphp/pest": "^1.21",
+        "worksome/coding-style": "^0.4.0"
+    },
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^8.73",
+        "illuminate/contracts": "^8.73"
+    },
+    "scripts": {
+        "phpcs": "vendor/bin/phpcs",
+        "phpcbf": "vendor/bin/phpcbf",
+        "pest:test": "pest --colors=always --stop-on-failure"
+    }
+}
