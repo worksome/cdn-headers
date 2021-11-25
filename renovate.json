@@ -1,5 +1,8 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "semanticCommits": "enabled",
+  "branchConcurrentLimit": 10,
+  "reviewersFromCodeOwners": true
 }
