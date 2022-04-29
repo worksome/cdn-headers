@@ -21,7 +21,7 @@
     ],
     "require-dev": {
         "pestphp/pest": "1.21.2",
-        "worksome/coding-style": "0.14.0"
+        "worksome/coding-style": "0.16.0"
     },
     "require": {
         "php": "^8.0",
