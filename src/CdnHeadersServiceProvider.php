@@ -2,8 +2,8 @@
 
 namespace Worksome\CdnHeaders;
 
-use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 use Worksome\CdnHeaders\Contracts\CdnHeadersProvider as CdnHeadersProviderContract;
 

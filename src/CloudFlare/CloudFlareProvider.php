@@ -8,7 +8,7 @@ use Worksome\CdnHeaders\ServerHeadersRepository;
 class CloudFlareProvider implements CdnHeadersProvider
 {
     public function __construct(
-        private ServerHeadersRepository $serverHeaders
+        private ServerHeadersRepository $serverHeaders,
     ) {
     }
 
