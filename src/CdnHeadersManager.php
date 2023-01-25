@@ -3,27 +3,31 @@
 namespace Worksome\CdnHeaders;
 
 use Illuminate\Support\Manager;
-use JetBrains\PhpStorm\Pure;
-use Worksome\CdnHeaders\CloudFlare\CloudFlareProvider;
-use Worksome\CdnHeaders\Contracts\CdnHeadersProvider as CdnHeadersProviderContract;
+use Worksome\CdnHeaders\Contracts\CdnHeadersProvider;
+use Worksome\CdnHeaders\Providers\CloudFlare\CloudFlareProvider;
+use Worksome\CdnHeaders\Providers\FakeProvider;
 
 class CdnHeadersManager extends Manager
 {
-    #[Pure]
-    public function createCloudFlareDriver(): CloudFlareProvider
+    public function createCloudFlareDriver(): CdnHeadersProvider
     {
         return new CloudFlareProvider(
+            $this->config->get('cdn-headers') ?? [],
             $this->container->get(ServerHeadersRepository::class)
         );
     }
 
-    #[Pure]
-    public function getDefaultDriver(): string
+    public function createFakeDriver(): CdnHeadersProvider
     {
-        return 'cloudflare';
+        return new FakeProvider($this->config->get('cdn-headers') ?? []);
     }
 
-    public function provider(string $driver): CdnHeadersProviderContract
+    public function getDefaultDriver(): string
+    {
+        return $this->config->get('cdn-headers.default-provider') ?? 'cloudflare';
+    }
+
+    public function provider(string $driver): CdnHeadersProvider
     {
         return $this->driver($driver);
     }

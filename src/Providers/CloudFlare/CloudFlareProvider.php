@@ -1,6 +1,6 @@
 <?php
 
-namespace Worksome\CdnHeaders\CloudFlare;
+namespace Worksome\CdnHeaders\Providers\CloudFlare;
 
 use Worksome\CdnHeaders\Contracts\CdnHeadersProvider;
 use Worksome\CdnHeaders\ServerHeadersRepository;
@@ -8,13 +8,14 @@ use Worksome\CdnHeaders\ServerHeadersRepository;
 class CloudFlareProvider implements CdnHeadersProvider
 {
     public function __construct(
+        private array $config,
         private ServerHeadersRepository $serverHeaders,
     ) {
     }
 
-    public function getCountryCode(): ?string
+    public function getCountryCode(): string|null
     {
-        return $this->serverHeaders->get('HTTP_CF_IPCOUNTRY');
+        return $this->serverHeaders->get('HTTP_CF_IPCOUNTRY') ?? $this->config['default-country'] ?? null;
     }
 
     public function hasCountryCode(): bool
@@ -22,17 +23,17 @@ class CloudFlareProvider implements CdnHeadersProvider
         return (bool) $this->getCountryCode();
     }
 
-    public function getConnectingIp(): ?string
+    public function getConnectingIp(): string|null
     {
         return $this->serverHeaders->get('HTTP_CF_CONNECTING_IP');
     }
 
     /**
-     * https://support.cloudflare.com/hc/en-us/articles/203118044-What-is-the-CF-RAY-header-#h_f7a7396f-ec41-4c52-abf5-a110cadaca7c
+     * @link https://support.cloudflare.com/hc/en-us/articles/203118044-What-is-the-CF-RAY-header-#h_f7a7396f-ec41-4c52-abf5-a110cadaca7c
      *
      * @return non-empty-string|null
      */
-    public function getTraceId(): ?string
+    public function getTraceId(): string|null
     {
         return $this->serverHeaders->get('HTTP_CF_RAY');
     }
