@@ -10,7 +10,7 @@ interface CdnHeadersProvider
      *
      * @return non-empty-string|null
      */
-    public function getCountryCode(): ?string;
+    public function getCountryCode(): string|null;
 
     public function hasCountryCode(): bool;
 
@@ -19,9 +19,9 @@ interface CdnHeadersProvider
      *
      * @return non-empty-string|null
      */
-    public function getConnectingIp(): ?string;
+    public function getConnectingIp(): string|null;
 
-    public function getTraceId(): ?string;
+    public function getTraceId(): string|null;
 
     /**
      * Anything required to be loaded in the boot

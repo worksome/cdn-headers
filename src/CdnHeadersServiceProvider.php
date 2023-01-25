@@ -5,13 +5,13 @@ namespace Worksome\CdnHeaders;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
-use Worksome\CdnHeaders\Contracts\CdnHeadersProvider as CdnHeadersProviderContract;
+use Worksome\CdnHeaders\Contracts\CdnHeadersProvider;
 
 class CdnHeadersServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     public function boot(): void
     {
-        $this->app->get(CdnHeadersProviderContract::class)->boot();
+        $this->app->get(CdnHeadersProvider::class)->boot();
     }
 
     public function register(): void
@@ -22,13 +22,13 @@ class CdnHeadersServiceProvider extends ServiceProvider implements DeferrablePro
         );
 
         $this->app->singleton(
-            CdnHeadersProviderContract::class,
+            CdnHeadersProvider::class,
             static fn(Container $app) => $app->get(CdnHeadersManager::class)->driver()
         );
     }
 
     public function provides(): array
     {
-        return [CdnHeadersProviderContract::class, CdnHeadersManager::class];
+        return [CdnHeadersProvider::class, CdnHeadersManager::class];
     }
 }

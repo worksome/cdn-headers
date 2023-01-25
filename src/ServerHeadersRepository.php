@@ -7,7 +7,7 @@ class ServerHeadersRepository
     /**
      * @return non-empty-string|null
      */
-    public function get(string $key): ?string
+    public function get(string $key): string|null
     {
         if (isset($_SERVER[$key])) {
             return $_SERVER[$key];
