@@ -26,8 +26,8 @@
     },
     "require": {
         "php": "^8.2",
-        "illuminate/support": "^9.46",
-        "illuminate/contracts": "^9.46"
+        "illuminate/support": "^9.46|^10.0",
+        "illuminate/contracts": "^9.46|^10.0"
     },
     "scripts": {
         "lint": "vendor/bin/ecs --fix",
