@@ -20,14 +20,14 @@
         }
     ],
     "require-dev": {
-        "pestphp/pest": "1.22.2",
-        "worksome/coding-style": "2.3.2",
-        "mockery/mockery": "1.5.1"
+        "pestphp/pest": "^2.0",
+        "worksome/coding-style": "^2.5",
+        "mockery/mockery": "^1.5.1"
     },
     "require": {
         "php": "^8.2",
-        "illuminate/support": "^9.46|^10.0",
-        "illuminate/contracts": "^9.46|^10.0"
+        "illuminate/support": "^10.0",
+        "illuminate/contracts": "^10.0"
     },
     "scripts": {
         "lint": "vendor/bin/ecs --fix",
