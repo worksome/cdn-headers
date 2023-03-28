@@ -1,6 +1,6 @@
 # CDN Headers
 
-[![Tests](https://github.com/worksome/cdn-headers/actions/workflows/main.yml/badge.svg)](https://github.com/worksome/cdn-headers/actions/workflows/main.yml)
+[![Tests](https://github.com/worksome/cdn-headers/actions/workflows/tests.yml/badge.svg)](https://github.com/worksome/cdn-headers/actions/workflows/tests.yml)
 [![Code Analysis](https://github.com/worksome/cdn-headers/actions/workflows/code-analysis.yml/badge.svg)](https://github.com/worksome/cdn-headers/actions/workflows/code-analysis.yml)
 
 
