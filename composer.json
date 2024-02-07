@@ -3,6 +3,16 @@
     "description": "Package that wraps around CDN headers.",
     "type": "library",
     "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0 || ^11.0",
+        "illuminate/contracts": "^10.0 || ^11.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.33",
+        "worksome/coding-style": "^2.8",
+        "mockery/mockery": "^1.6"
+    },
     "autoload": {
         "psr-4": {
             "Worksome\\CdnHeaders\\": "src/"
@@ -12,22 +22,6 @@
         "psr-4": {
             "Worksome\\CdnHeaders\\Tests\\": "tests"
         }
-    },
-    "authors": [
-        {
-            "name": "Lukas Juhas",
-            "email": "lukas@worksome.com"
-        }
-    ],
-    "require-dev": {
-        "pestphp/pest": "^2.0",
-        "worksome/coding-style": "^2.5",
-        "mockery/mockery": "^1.5.1"
-    },
-    "require": {
-        "php": "^8.2",
-        "illuminate/support": "^10.0",
-        "illuminate/contracts": "^10.0"
     },
     "scripts": {
         "lint": "vendor/bin/ecs --fix",
