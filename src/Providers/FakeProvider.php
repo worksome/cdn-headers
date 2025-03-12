@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Worksome\CdnHeaders\Providers;
 
 use Worksome\CdnHeaders\Contracts\CdnHeadersProvider;

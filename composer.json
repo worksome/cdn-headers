@@ -4,14 +4,15 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": "^8.2",
-        "illuminate/support": "^10.0 || ^11.0",
-        "illuminate/contracts": "^10.0 || ^11.0"
+        "php": "^8.3",
+        "illuminate/support": "^11.0 || ^12.0",
+        "illuminate/contracts": "^11.0 || ^12.0"
     },
     "require-dev": {
-        "pestphp/pest": "^2.33",
-        "worksome/coding-style": "^2.8",
-        "mockery/mockery": "^1.6"
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^9.12 || ^10.1",
+        "pestphp/pest": "^3.1",
+        "worksome/coding-style": "^3.2"
     },
     "autoload": {
         "psr-4": {
@@ -26,10 +27,12 @@
     "scripts": {
         "lint": "vendor/bin/ecs --fix",
         "test:unit": "vendor/bin/pest",
+        "test:types": "vendor/bin/phpstan analyse",
         "test:coverage": "vendor/bin/pest --coverage --min=95",
         "test:style": "vendor/bin/ecs",
         "test": [
             "@test:style",
+            "@test:types",
             "@test:unit"
         ]
     },

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Worksome\CdnHeaders;
 
 use Illuminate\Contracts\Container\Container;
@@ -18,12 +20,12 @@ class CdnHeadersServiceProvider extends ServiceProvider implements DeferrablePro
     {
         $this->app->singleton(
             CdnHeadersManager::class,
-            static fn(Container $container) => new CdnHeadersManager($container)
+            static fn (Container $container) => new CdnHeadersManager($container)
         );
 
         $this->app->singleton(
             CdnHeadersProvider::class,
-            static fn(Container $app) => $app->get(CdnHeadersManager::class)->driver()
+            static fn (Container $app) => $app->get(CdnHeadersManager::class)->driver()
         );
     }
 

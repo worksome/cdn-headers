@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Worksome\CdnHeaders\Providers\FakeProvider;
 
 beforeEach(function () {

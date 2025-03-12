@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Worksome\CdnHeaders;
 
 class ServerHeadersRepository
 {
-    /**
-     * @return non-empty-string|null
-     */
+    /** @return non-empty-string|null */
     public function get(string $key): string|null
     {
         if (isset($_SERVER[$key])) {
@@ -25,6 +25,6 @@ class ServerHeadersRepository
 
     public function has(string $key): bool
     {
-        return isset($_SERVER[$key]) ?? false;
+        return isset($_SERVER[$key]);
     }
 }
