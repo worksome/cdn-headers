@@ -11,7 +11,7 @@ class CloudFlareProvider implements CdnHeadersProvider
 {
     public function __construct(
         private array $config,
-        private ServerHeadersRepository $serverHeaders,
+        private readonly ServerHeadersRepository $serverHeaders,
     ) {
     }
 
